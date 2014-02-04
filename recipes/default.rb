@@ -11,9 +11,9 @@
 
 Chef::Log.logger.info 'Nodejs should be installed before this Recipe'
 
-directory "/var/nodejs" do
+directory node['screenshot_as_a_service']['app_dir'] do
   recursive true
-  owner "yoshi"
+  owner "root"
   mode 0755
   action :create
 end
@@ -21,21 +21,21 @@ end
 #
 # インストール
 #
-git "/var/nodejs/screenshot-as-a-service" do
+git "#{node['screenshot_as_a_service']['app_dir']}/screenshot-as-a-service" do
   repository "https://github.com/yss44/screenshot-as-a-service.git"
   reference "master"
   action :sync
-  user "yoshi"
+  user "root"
 end
 
 
 #
 # 設定ファイルを指定
 #
-template "/var/nodejs/screenshot-as-a-service/config/default.yaml" do
+template "#{node['screenshot_as_a_service']['app_dir']}/screenshot-as-a-service/config/default.yaml" do
   source 'default.yaml'
-  owner "yoshi"
-  group "yoshi"
+  owner "root"
+  group "root"
   mode  "0755"
 end
 
@@ -43,9 +43,9 @@ end
 # 依存関係解決
 #
 bash "install dependencies" do
-  cwd "/var/nodejs/screenshot-as-a-service"
-  code "npm install && touch /var/nodejs/screenshot-as-a-service/.installed;"
-  creates "/var/nodejs/screenshot-as-a-service/.installed"
+  cwd "#{node['screenshot_as_a_service']['app_dir']}/screenshot-as-a-service"
+  code "npm install && touch #{node['screenshot_as_a_service']['app_dir']}/screenshot-as-a-service/.installed;"
+  creates "#{node['screenshot_as_a_service']['app_dir']}/screenshot-as-a-service/.installed"
 end
 
 #

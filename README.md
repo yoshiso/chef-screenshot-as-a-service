@@ -1,23 +1,25 @@
 screenshot_as_a_service Cookbook
 ================================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook makes you install [screenshot-as-a-service](https://github.com/fzaninotto/screenshot-as-a-service) easily.
+
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
+### platform
+
+CentOS
+
+
 #### packages
-- `toaster` - screenshot_as_a_service needs toaster to brown your bagel.
+- `nodejs` - screenshot_as_a_service needs nodejs to be installed
+- `phantomjs` - screenshot_as_a_service needs phantomjs to be installed
+
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
 
-e.g.
 #### screenshot_as_a_service::default
 <table>
   <tr>
@@ -27,29 +29,35 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['screenshot_as_a_service']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['screenshot_as_a_service']['app_dir']</tt></td>
+    <td>String</td>
+    <td>Where to install screenshot_as_a_service</td>
+    <td><tt>"/var/nodejs"</tt></td>
   </tr>
 </table>
 
 Usage
 -----
 #### screenshot_as_a_service::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
 Just include `screenshot_as_a_service` in your node's `run_list`:
 
 ```json
 {
-  "name":"my_node",
+  screenshot_as_a_service:{
+      appdir:"/var/nodejs"
+  },
   "run_list": [
     "recipe[screenshot_as_a_service]"
   ]
 }
 ```
+
+Config file is in the template.
+
+It works on port 4000 default and it uses 4001 for backend phantomjs server.
+
+
 
 Contributing
 ------------

@@ -31,7 +31,7 @@
 . /etc/init.d/functions
  
 NAME=screenshot-as-a-service
-SOURCE_DIR=<%= node['screenshot_as_a_service']['app_dir'] %>/screenshot-as-a-service
+SOURCE_DIR=/var/nodejs/screenshot-as-a-service
 SOURCE_FILE=app.js
  
 user=root
@@ -47,7 +47,7 @@ export PATH=$PATH:/usr/local/bin
 export NODE_PATH=$NODE_PATH:/var/nodejs/$NAME/node_modules
 export NODE_CONFIG_DIR=$SOURCE_DIR/config
 
-cd <%= node['screenshot_as_a_service']['app_dir'] %>/screenshot-as-a-service;
+cd /var/nodejs/screenshot-as-a-service;
 
 start() {
   echo "Starting $NAME node instance: "
