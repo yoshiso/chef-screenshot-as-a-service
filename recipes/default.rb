@@ -2,7 +2,7 @@
 # Cookbook Name:: screenshot_as_a_service
 # Recipe:: default
 #
-# Copyright 2014, YOUR_COMPANY_NAME
+# Copyright 2014, Sho Yoshida
 #
 # All rights reserved - Do Not Redistribute
 #

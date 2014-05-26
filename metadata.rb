@@ -1,5 +1,5 @@
 name             'screenshot_as_a_service'
-maintainer       'YOUR_COMPANY_NAME'
+maintainer       'Sho Yoshida'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
 description      'Installs/Configures screenshot_as_a_service'
